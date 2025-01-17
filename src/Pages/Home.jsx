@@ -1,9 +1,12 @@
 import React from "react";
+import Banner from "../Components/Banner";
+import Category from "../Components/Category";
 
 const Home = () => {
   return (
-    <div>
-      <h1>This is Home page.</h1>
+    <div className="space-y-20 mb-20">
+      <Banner />
+      <Category />
     </div>
   );
 };
