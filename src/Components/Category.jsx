@@ -1,3 +1,4 @@
+import SectionHeading from "./SectionHeading";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
@@ -10,15 +11,11 @@ import slide5 from "../assets/home/slide5.jpg";
 
 const Category = () => {
   return (
-    <div className="space-y-10 w-11/12 mx-auto">
-      <div className="flex flex-col items-center justify-center mt-10 font-Inter space-y-5">
-        <p className="text-color3 text-xl leading-6">
-          ---From 11:00am to 10:00pm---
-        </p>
-        <h1 className="text-40 leading-48 text-color2 border border-x-0 border-y-4 border-color7 px-16 py-5 ">
-          ORDER ONLINE
-        </h1>
-      </div>
+    <div className="space-y-10 w-8/12 mx-auto">
+      <SectionHeading
+        subtitle={"---From 11:00am to 10:00pm---"}
+        title={"ORDER ONLINE"}
+      />
       <Swiper
         slidesPerView={5}
         spaceBetween={24}

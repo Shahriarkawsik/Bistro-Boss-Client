@@ -13,6 +13,8 @@ export default {
         color5: "rgb(31, 41, 55)",
         color6: "rgb(17, 24, 39)",
         color7: "rgb(232, 232, 232)",
+        color8: "rgb(187, 133, 6)",
+        color9: "rgb(243, 243, 243)",
       },
       fontFamily: {
         Cinzel: " Cinzel",
@@ -21,10 +23,14 @@ export default {
       fontSize: {
         32: "32px",
         40: "40px",
+        45: "45px",
+        50: "50px",
       },
       lineHeight: {
         43: "43px",
         48: "48px",
+        61: "61px",
+        59: "59px",
       },
       letterSpacing: {
         6: "6px",
