@@ -1,4 +1,4 @@
-import React from "react";
+import CustomButton from "./CustomButton";
 
 const CustomRecommendFoodCard = ({ foodImage, foodName, foodIngredient }) => {
   return (
@@ -8,15 +8,17 @@ const CustomRecommendFoodCard = ({ foodImage, foodName, foodIngredient }) => {
         <h2 className="font-semibold text-color2 text-2xl leading-7">
           {foodName}
         </h2>
-        <p className="leading-7 text-color2">
-          {/* Lettuce, Eggs, Parmesan Cheese, Chicken Breast Fillets. */}
-          {foodIngredient}
-        </p>
-        <button
+        <p className="leading-7 text-color2">{foodIngredient}</p>
+        <CustomButton
+          buttonElement={"add to cart"}
+          color={"color8"}
+          className={"bg-color7 hover:bg-color5"}
+        />
+        {/* <button
           className={`font-Inter font-medium text-xl leading-6 uppercase border-b-2 rounded-lg px-8 py-5 text-color8 border-b-color8 bg-color7 hover:bg-color5`}
         >
           add to cart
-        </button>
+        </button> */}
       </div>
     </div>
   );

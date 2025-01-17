@@ -5,6 +5,7 @@ import About from "../Components/About";
 import Menu from "../Components/Menu";
 import CallUs from "../Components/CallUs";
 import RecommendFood from "../Components/RecommendFood";
+import OurMenu from "../Components/OurMenu";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Menu />
       <CallUs />
       <RecommendFood />
+      <OurMenu />
     </div>
   );
 };
