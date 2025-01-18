@@ -1,61 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SectionHeading from "./SectionHeading";
 import MenuCard from "./MenuCard";
 import CustomButton from "./CustomButton";
 
 const Menu = () => {
+  const [menuItems, setMenuItems] = useState([]);
+
+  useEffect(() => {
+    fetch("menu.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const popularItems = data.filter((item) => item.category === "popular");
+        setMenuItems(popularItems);
+      });
+  }, []);
+
   return (
     <section className="space-y-20 w-8/12 mx-auto">
       <SectionHeading subtitle={"---Check it out---"} title={"FROM OUR MENU"} />
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <MenuCard
-          foodImg={"/"}
-          foodName={"ROAST DUCK BREAST ------------------"}
-          foodDescription={
-            "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce"
-          }
-          foodPrice={"$14.5"}
-        />
-        <MenuCard
-          foodImg={"/"}
-          foodName={"TUNA NIÇOISE ------------------"}
-          foodDescription={
-            "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce"
-          }
-          foodPrice={"$14.5"}
-        />
-        <MenuCard
-          foodImg={"/"}
-          foodName={"ESCALOPE DE VEAU ------------------"}
-          foodDescription={
-            "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce"
-          }
-          foodPrice={"$14.5"}
-        />
-        <MenuCard
-          foodImg={"/"}
-          foodName={"CHICKEN AND WALNUT SALAD ---------------"}
-          foodDescription={
-            "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce"
-          }
-          foodPrice={"$14.5"}
-        />
-        <MenuCard
-          foodImg={"/"}
-          foodName={"FISH PARMENTIER ------------------"}
-          foodDescription={
-            "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce"
-          }
-          foodPrice={"$14.5"}
-        />
-        <MenuCard
-          foodImg={"/"}
-          foodName={"ROASTED PORK BELLY ------------------"}
-          foodDescription={
-            "Roasted duck breast (served pink) with gratin potato and a griottine cherry sauce"
-          }
-          foodPrice={"$14.5"}
-        />
+        {menuItems.map((menuItem) => (
+          <MenuCard
+            key={menuItem._id}
+            foodImg={menuItem.image}
+            foodName={menuItem.name}
+            foodRecipe={menuItem.recipe}
+            foodPrice={menuItem.price}
+          />
+        ))}
       </div>
       <CustomButton buttonElement={"View Full  Menu"} color={"color5"} />
     </section>

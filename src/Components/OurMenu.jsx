@@ -8,7 +8,7 @@ const OurMenu = () => {
       style={{
         backgroundImage: `linear-gradient(rgba(21, 21, 21, 0.7), rgba(21, 21, 21, 0.7)), url(${featured})`,
       }}
-      className="bg-cover bg-center bg-no-repeat py-20"
+      className="bg-cover bg-center bg-no-repeat py-20 bg-fixed"
     >
       <div className="w-8/12 mx-auto space-y-10">
         <SectionHeading

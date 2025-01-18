@@ -4,7 +4,7 @@ import chefService from "../assets/home/chef-service.jpg";
 const About = () => {
   return (
     <div
-      className="w-8/12 mx-auto border p-[120px]"
+      className="w-8/12 mx-auto border p-[120px] bg-fixed"
       style={{
         backgroundImage: `url(${chefService})`,
         backgroundSize: "cover",
