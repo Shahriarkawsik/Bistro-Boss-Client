@@ -25,6 +25,7 @@ export default {
         40: "40px",
         45: "45px",
         50: "50px",
+        88: "88px",
       },
       lineHeight: {
         39: "39px",
@@ -32,6 +33,7 @@ export default {
         48: "48px",
         61: "61px",
         59: "59px",
+        119: "119px",
       },
       letterSpacing: {
         6: "6px",

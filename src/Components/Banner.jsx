@@ -17,22 +17,22 @@ const Banner = () => {
       autoPlay={true}
       className="flex flex-col items-center justify-center"
     >
-      <div className="w-full h-[850px]">
+      <div className="w-full h-[800px]">
         <img className="w-full h-full" src={img1} />
       </div>
-      <div className="w-full h-[850px]">
+      <div className="w-full h-[800px]">
         <img className="w-full h-full" src={img2} />
       </div>
-      <div className="w-full h-[850px]">
+      <div className="w-full h-[800px]">
         <img className="w-full h-full" src={img3} />
       </div>
-      <div className="w-full h-[850px]">
+      <div className="w-full h-[800px]">
         <img className="w-full h-full" src={img4} />
       </div>
-      <div className="w-full h-[850px]">
+      <div className="w-full h-[800px]">
         <img className="w-full h-full" src={img5} />
       </div>
-      <div className="w-full h-[850px]">
+      <div className="w-full h-[800px]">
         <img className="w-full h-full" src={img6} />
       </div>
     </Carousel>
