@@ -14,15 +14,16 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import SectionHeading from "./SectionHeading";
 import { FaQuoteLeft } from "react-icons/fa";
+import axios from "axios";
 /***************************** Rating ******************************/
 
 const Testimonials = () => {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch(`reviews.json`)
-      .then((response) => response.json())
-      .then((data) => setReviews(data));
+    axios
+      .get(`${import.meta.env.VITE_BASE_URL}/review`)
+      .then((response) => setReviews(response.data));
   }, []);
   return (
     <section className="w-8/12 mx-auto">

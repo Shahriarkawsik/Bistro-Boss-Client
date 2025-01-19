@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 const useMenu = () => {
@@ -5,12 +6,10 @@ const useMenu = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setMenuItems(data);
-        setLoading(false);
-      });
+    axios.get(`${import.meta.env.VITE_BASE_URL}/menu`).then((response) => {
+      setMenuItems(response.data);
+      setLoading(false);
+    });
   }, []);
   return [menuItems, loading];
 };
