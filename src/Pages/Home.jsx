@@ -7,10 +7,14 @@ import CallUs from "../Components/CallUs";
 import RecommendFood from "../Components/RecommendFood";
 import OurMenu from "../Components/OurMenu";
 import Testimonials from "../Components/Testimonials";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
     <div className="space-y-20 mb-20">
+      <Helmet>
+        <title>Home | Boss Restaurant</title>
+      </Helmet>
       <Banner />
       <Category />
       <About />

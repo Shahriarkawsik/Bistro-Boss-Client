@@ -1,6 +1,7 @@
 import React from "react";
 import CustomFoodItemBanner from "./CustomFoodItemBanner";
 import MenuCard from "../MenuCard";
+import CustomButton from "../CustomButton";
 
 const CustomFoodCategory = ({
   bannerImage,
@@ -28,6 +29,11 @@ const CustomFoodCategory = ({
           />
         ))}
       </div>
+      {/* button */}
+      <CustomButton
+        buttonElement={"ORDER YOUR FAVOURITE FOOD"}
+        color={"color5"}
+      />
     </div>
   );
 };

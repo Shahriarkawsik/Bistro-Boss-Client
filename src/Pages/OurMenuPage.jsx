@@ -1,32 +1,36 @@
-import React, { useEffect, useState } from "react";
-import MenuBanner from "../Components/MenuComponent/MenuBanner";
 import SectionHeading from "../Components/SectionHeading";
 import MenuCard from "../Components/MenuCard";
 import CustomFoodCategory from "../Components/MenuComponent/CustomFoodCategory";
 
+import menuBannerImg from "../assets/menu/banner3.jpg";
 import dessertImg from "../assets/home/chef-service.jpg";
 import pizzaImg from "../assets/menu/pizza-bg.jpg";
 import saladImg from "../assets/menu/salad-bg.jpg";
 import soupImg from "../assets/menu/soup-bg.jpg";
+import { Helmet } from "react-helmet-async";
+import CustomPageBanner from "../Components/CustomPageBanner";
+import useMenu from "../hooks/useMenu";
 
 const OurMenuPage = () => {
-  const [foods, setFoods] = useState([]);
+  const [menuItems] = useMenu();
 
-  const offeredFood = foods.filter((food) => food.category === "offered");
-  const dessert = foods.filter((food) => food.category === "dessert");
-  const pizza = foods.filter((food) => food.category === "pizza");
-  const salad = foods.filter((food) => food.category === "salad");
-  const soup = foods.filter((food) => food.category === "soup");
+  const offeredFood = menuItems.filter((food) => food.category === "offered");
+  const dessert = menuItems.filter((food) => food.category === "dessert");
+  const pizza = menuItems.filter((food) => food.category === "pizza");
+  const salad = menuItems.filter((food) => food.category === "salad");
+  const soup = menuItems.filter((food) => food.category === "soup");
 
-  useEffect(() => {
-    fetch(`menu.json`)
-      .then((res) => res.json())
-      .then((data) => setFoods(data));
-  }, []);
   return (
     <section className="space-y-24 mb-24">
+      <Helmet>
+        <title>Menu | Boss Restaurant</title>
+      </Helmet>
       {/* Banner */}
-      <MenuBanner />
+      <CustomPageBanner
+        bannerImg={menuBannerImg}
+        bannerTitle={"OUR MENU"}
+        bannerSubtitle={"Would you like to try a dish?"}
+      />
       {/* Offered Food */}
       <div className="w-8/12 mx-auto space-y-10">
         <SectionHeading subtitle={`---Don't miss---`} title={`TODAY'S OFFER`} />

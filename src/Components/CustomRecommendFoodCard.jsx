@@ -14,11 +14,6 @@ const CustomRecommendFoodCard = ({ foodImage, foodName, foodIngredient }) => {
           color={"color8"}
           className={"bg-color7 hover:bg-color5"}
         />
-        {/* <button
-          className={`font-Inter font-medium text-xl leading-6 uppercase border-b-2 rounded-lg px-8 py-5 text-color8 border-b-color8 bg-color7 hover:bg-color5`}
-        >
-          add to cart
-        </button> */}
       </div>
     </div>
   );
