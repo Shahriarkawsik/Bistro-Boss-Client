@@ -1,66 +1,109 @@
-import { NavLink } from "react-router-dom";
-import shoppingIcon from "../../assets/icon/shopping-cart.png";
+import { NavLink, useNavigate } from "react-router-dom";
+// import shoppingIcon from "../../assets/icon/shopping-cart.png";
 import "./navbar.css";
+import { useContext } from "react";
+import { bistroContext } from "./../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const NavBar = () => {
+  const { user, SignOutUser } = useContext(bistroContext);
+  const navigate = useNavigate();
+  const handleSignOut = () => {
+    SignOutUser()
+      .then(() => {
+        // console.log("SignOut Successful");
+        Swal.fire({
+          title: "SignOut Successful",
+          icon: "success",
+          draggable: true,
+        });
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("SignOut unsuccessful", error.message);
+      });
+  };
   return (
     <nav className="bg-color2.5 backdrop-blur-xl fixed top-0 z-50 w-full">
       <div className="navbar w-11/12 mx-auto">
         <div className="flex-1">
           <div className="flex flex-col items-center">
-            <a className="font-extrabold text-white font-Cinzel text-32 leading-43">
+            <button className="font-extrabold text-white font-Cinzel text-32 leading-43">
               BISTRO BOSS
-            </a>
-            <a className="font-bold text-white uppercase font-Cinzel text-2xl leading-8 tracking-6">
+            </button>
+            <button className="font-bold text-white uppercase font-Cinzel text-2xl leading-8 tracking-6">
               Restaurant
-            </a>
+            </button>
           </div>
         </div>
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1">
             <li>
               <NavLink to={"/"}>
-                <a className="font-bold text-white text-xl leading-6 font-Inter uppercase">
+                <button className="font-bold text-white text-xl leading-6 font-Inter uppercase">
                   home
-                </a>
+                </button>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/contactUs"}>
-                <a className="font-bold text-white text-xl leading-6 font-Inter uppercase">
+                <button className="font-bold text-white text-xl leading-6 font-Inter uppercase">
                   contact us
-                </a>
+                </button>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/dashboard"}>
-                <a className="font-bold text-white text-xl leading-6 font-Inter uppercase">
+                <button className="font-bold text-white text-xl leading-6 font-Inter uppercase">
                   dashboard
-                </a>
+                </button>
               </NavLink>
             </li>
             <li>
               <NavLink to={"/menu"}>
-                <a className="font-bold text-white text-xl leading-6 font-Inter uppercase">
+                <button className="font-bold text-white text-xl leading-6 font-Inter uppercase">
                   our menu
-                </a>
+                </button>
               </NavLink>
             </li>
-            <li className="flex items-center gap-1">
-              <NavLink to={"/ourShop"}>
-                <a className="font-bold text-white text-xl leading-6 font-Inter uppercase">
-                  our shop
-                </a>
-              </NavLink>
-              {/* <img className="w-16" src={shoppingIcon} alt="" /> */}
-            </li>
-            <li>
-              <NavLink to={"/singOut"}>
-                <a className="font-bold text-white text-xl leading-6 font-Inter uppercase">
-                  sign out
-                </a>
-              </NavLink>
-            </li>
+
+            {user ? (
+              <>
+                <li className="flex items-center gap-1">
+                  <NavLink to={"/ourShop"}>
+                    <button className="font-bold text-white text-xl leading-6 font-Inter uppercase">
+                      our shop
+                    </button>
+                  </NavLink>
+                  {/* <img className="w-16" src={shoppingIcon} alt="" /> */}
+                </li>
+
+                <div className="relative group">
+                  <img
+                    className="w-12 h-12 rounded-full"
+                    src={user?.photoURL}
+                    alt="photo"
+                  />
+                  <div className="z-10 hidden group-hover:block absolute w-max right-0 top-12 bg-color3 p-3 rounded-s-lg space-y-4">
+                    <h2>{user?.displayName}</h2>
+                    <button
+                      className="font-bold bg-color8 p-3 rounded-lg text-white text-xl leading-6 font-Inter uppercase"
+                      onClick={handleSignOut}
+                    >
+                      sign out
+                    </button>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <li>
+                <NavLink to={"/signIn"}>
+                  <button className="font-bold text-white text-xl leading-6 font-Inter uppercase">
+                    sign In
+                  </button>
+                </NavLink>
+              </li>
+            )}
           </ul>
         </div>
       </div>

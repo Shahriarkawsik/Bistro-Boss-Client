@@ -51,9 +51,7 @@ const AuthProvider = ({ children }) => {
     SignOutUser,
   };
   return (
-    <jobPortalContext.Provider value={authInfo}>
-      {children}
-    </jobPortalContext.Provider>
+    <bistroContext.Provider value={authInfo}>{children}</bistroContext.Provider>
   );
 };
 

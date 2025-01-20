@@ -1,16 +1,19 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import NavBar from "./Components/NavBar/NavBar";
 import Footer from "./Components/Footer";
 
 const Root = () => {
+  const { pathname } = useLocation();
+
   return (
     <div>
-      <NavBar />
+      {pathname === "/signIn" || pathname === "/signUp" || <NavBar />}
+      {/* <NavBar /> */}
       <div className="min-h-screen">
         <Outlet />
       </div>
-      <Footer />
+      {pathname === "/signIn" || pathname === "/signUp" || <Footer />}
     </div>
   );
 };
