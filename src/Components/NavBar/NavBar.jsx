@@ -76,11 +76,10 @@ const NavBar = () => {
                       our shop
                     </button>
                   </NavLink>
-                  {/* <img className="w-16" src={shoppingIcon} alt="" /> */}
                 </li>
 
                 <li className="flex items-center gap-1">
-                  <NavLink to={"/carts"}>
+                  <NavLink to={"/dashboard"}>
                     <button className="relative w-9 h-9 bg-white flex items-center justify-center border border-color1.15 rounded-full">
                       <AiOutlineShoppingCart className="text-color2 text-xl " />
                       <small className=" font-bold absolute -top-3 right-0 text-color3">
@@ -88,7 +87,6 @@ const NavBar = () => {
                       </small>
                     </button>
                   </NavLink>
-                  {/* <img className="w-16" src={shoppingIcon} alt="" /> */}
                 </li>
 
                 <div className="relative group">
