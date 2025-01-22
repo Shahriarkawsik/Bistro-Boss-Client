@@ -1,9 +1,10 @@
 import { NavLink, useNavigate } from "react-router-dom";
-// import shoppingIcon from "../../assets/icon/shopping-cart.png";
 import "./navbar.css";
 import { useContext } from "react";
 import { bistroContext } from "./../../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import useCart from "../../hooks/useCart";
 
 const NavBar = () => {
   const { user, SignOutUser } = useContext(bistroContext);
@@ -11,7 +12,6 @@ const NavBar = () => {
   const handleSignOut = () => {
     SignOutUser()
       .then(() => {
-        // console.log("SignOut Successful");
         Swal.fire({
           title: "SignOut Successful",
           icon: "success",
@@ -23,11 +23,12 @@ const NavBar = () => {
         console.log("SignOut unsuccessful", error.message);
       });
   };
+  const [cart] = useCart();
   return (
     <nav className="bg-color2.5 backdrop-blur-xl fixed top-0 z-50 w-full">
       <div className="navbar w-11/12 mx-auto">
         <div className="flex-1">
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center justify-center">
             <button className="font-extrabold text-white font-Cinzel text-32 leading-43">
               BISTRO BOSS
             </button>
@@ -73,6 +74,18 @@ const NavBar = () => {
                   <NavLink to={"/ourShop"}>
                     <button className="font-bold text-white text-xl leading-6 font-Inter uppercase">
                       our shop
+                    </button>
+                  </NavLink>
+                  {/* <img className="w-16" src={shoppingIcon} alt="" /> */}
+                </li>
+
+                <li className="flex items-center gap-1">
+                  <NavLink to={"/carts"}>
+                    <button className="relative w-9 h-9 bg-white flex items-center justify-center border border-color1.15 rounded-full">
+                      <AiOutlineShoppingCart className="text-color2 text-xl " />
+                      <small className=" font-bold absolute -top-3 right-0 text-color3">
+                        {cart.length}
+                      </small>
                     </button>
                   </NavLink>
                   {/* <img className="w-16" src={shoppingIcon} alt="" /> */}

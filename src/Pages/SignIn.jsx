@@ -74,7 +74,7 @@ const SignIn = () => {
   };
 
   useEffect(() => {
-    loadCaptchaEnginge(3);
+    loadCaptchaEnginge(4);
   }, []);
   return (
     <div

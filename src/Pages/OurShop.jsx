@@ -6,7 +6,6 @@ import { Helmet } from "react-helmet-async";
 import CustomPageBanner from "./../Components/CustomPageBanner";
 import CustomRecommendFoodCard from "../Components/CustomRecommendFoodCard";
 
-import foodImg from "../assets/home/slide1.jpg";
 import shopImg from "../assets/shop/banner2.jpg";
 import useMenu from "../hooks/useMenu";
 
@@ -48,8 +47,10 @@ const OurShop = () => {
               {salad.map((food) => (
                 <CustomRecommendFoodCard
                   key={food._id}
+                  foodId={food._id}
                   foodImage={food.image}
                   foodName={food.name}
+                                    foodPrice={food.price}
                   foodIngredient={food.recipe}
                 />
               ))}
@@ -61,8 +62,10 @@ const OurShop = () => {
               {pizza.map((food) => (
                 <CustomRecommendFoodCard
                   key={food._id}
+                  foodId={food._id}
                   foodImage={food.image}
                   foodName={food.name}
+                  foodPrice={food.price}
                   foodIngredient={food.recipe}
                 />
               ))}
@@ -74,8 +77,10 @@ const OurShop = () => {
               {soup.map((food) => (
                 <CustomRecommendFoodCard
                   key={food._id}
+                  foodId={food._id}
                   foodImage={food.image}
                   foodName={food.name}
+                  foodPrice={food.price}
                   foodIngredient={food.recipe}
                 />
               ))}
@@ -87,8 +92,10 @@ const OurShop = () => {
               {dessert.map((food) => (
                 <CustomRecommendFoodCard
                   key={food._id}
+                  foodId={food._id}
                   foodImage={food.image}
                   foodName={food.name}
+                  foodPrice={food.price}
                   foodIngredient={food.recipe}
                 />
               ))}
@@ -100,8 +107,10 @@ const OurShop = () => {
               {drinks.map((food) => (
                 <CustomRecommendFoodCard
                   key={food._id}
+                  foodId={food._id}
                   foodImage={food.image}
                   foodName={food.name}
+                  foodPrice={food.price}
                   foodIngredient={food.recipe}
                 />
               ))}
